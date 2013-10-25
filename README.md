@@ -20,7 +20,7 @@ Or install it yourself as:
 
 First authorize requests by setting the API key found on your [account's settings page](https://sourcing.io/profile).
 
-    Sourcing.key = ENV['SOURCING_KEY']
+    Sourcing.api_key = ENV['SOURCING_KEY']
 
 Then you can lookup people by email address:
 

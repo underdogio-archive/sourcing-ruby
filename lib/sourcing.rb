@@ -2,11 +2,15 @@ require 'nestful'
 require 'sourcing/version'
 
 module Sourcing
-  def self.key=(value)
+  def self.api_key=(value)
     Base.options = {
       :auth_type => :bearer,
       :password  => value
     }
+  end
+
+  def self.key=(value)
+    self.api_key = value
   end
 
   class Base < Nestful::Resource

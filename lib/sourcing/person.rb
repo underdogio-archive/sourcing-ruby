@@ -9,7 +9,7 @@ module Sourcing
 
       params = options.delete(:params) || {}
 
-      if key = options.delete(:key)
+      if key = options.delete(:api_key)
         params[:authorization] = key
       end
 
