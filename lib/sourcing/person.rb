@@ -7,10 +7,14 @@ module Sourcing
         values = {:id => values}
       end
 
-      params = options.delete(:params) || {}
+      options = options.dup
+      params  = options.delete(:params) || {}
 
       if key = options.delete(:api_key)
-        params[:authorization] = key
+        options.merge!(
+          auth_type: :bearer,
+          password: key
+        )
       end
 
       if email = values[:email]
