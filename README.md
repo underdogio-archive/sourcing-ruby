@@ -26,6 +26,22 @@ Then you can lookup people by email address:
 
     person = Sourcing::Person[email: 'info@eribium.org']
 
-    pp person if person
-
 If the person can't be found, then `nil` will be returned.
+
+You can also look people up by GitHub and Twitter handle:
+
+    person = Sourcing::Person[github: 'maccman']
+    person = Sourcing::Person[twitter: 'maccaw']
+
+## CLI
+
+The gem also includes a `sourcing` executable, which you can use like this:
+
+    $ sourcing --twitter DanielZarick
+
+        {
+          "id" => "7baccc21-36a7-436c-8d55-e3d15b61dbdf",
+          "name" => "Daniel Zarick",
+          "headline" => "Developer at 33cc77",
+          "url" => "http://danielzarick.com",
+          ...

@@ -15,7 +15,10 @@ module Sourcing
 
   class Base < Nestful::Resource
     endpoint 'https://api.sourcing.io'
+    options :format => :json
   end
 
+  autoload :Account, 'sourcing/account'
   autoload :Person, 'sourcing/person'
+  autoload :User, 'sourcing/user'
 end

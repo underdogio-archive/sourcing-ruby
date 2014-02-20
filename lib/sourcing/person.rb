@@ -10,13 +10,6 @@ module Sourcing
       options = options.dup
       params  = options.delete(:params) || {}
 
-      if key = options.delete(:api_key)
-        options.merge!(
-          auth_type: :bearer,
-          password: key
-        )
-      end
-
       if email = values[:email]
         self.new(get(uri(:email, email), params, options))
 
@@ -36,8 +29,32 @@ module Sourcing
     rescue Nestful::ResourceNotFound
     end
 
+    def self.search(filters, params = {})
+      post :search, params.merge(filters: filters)
+    end
+
     class << self
       alias_method :[], :find
+    end
+
+    def tweets
+      get :tweets
+    end
+
+    def notes
+      get :notes
+    end
+
+    def create_note!(body)
+      post :notes, body: body
+    end
+
+    def favorite!
+      post :favorite
+    end
+
+    def unfavorite!
+      delete :favorite
     end
   end
 end

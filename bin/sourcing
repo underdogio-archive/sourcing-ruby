@@ -37,8 +37,8 @@ end
 
 parser.parse!
 
-if email = ARGV[0]
-  values[:email] ||= email
+if id = ARGV[0]
+  values[:id] ||= id
 end
 
 if key = ENV['SOURCING_KEY']
