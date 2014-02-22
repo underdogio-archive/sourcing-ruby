@@ -16,7 +16,7 @@ options = {}
 values  = {}
 
 parser  = OptionParser.new do |opts|
-  opts.banner = "Usage: sourcing EMAIL [options]"
+  opts.banner = "Usage: sourcing SLUG [options]"
 
   opts.on("--twitter HANDLE", String, "Twitter handle") do |v|
     values[:twitter] = v
@@ -53,6 +53,8 @@ if values == {}
   puts parser
   exit
 end
+
+Sourcing.api_key = options[:api_key]
 
 person = Sourcing::Person.find(values, options)
 
