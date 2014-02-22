@@ -20,7 +20,7 @@ module Sourcing
         self.new(get(uri(:github, github), params, options))
 
       elsif name = values[:name]
-        self.new(get(uri(:name, name), params, options))
+        self.new(get(uri(:name, URI.escape(name)), params, options))
 
       elsif id = values[:id]
         self.new(get(id, params, options))
