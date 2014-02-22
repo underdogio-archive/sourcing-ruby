@@ -3,10 +3,10 @@ require 'sourcing/version'
 
 module Sourcing
   def self.api_key=(value)
-    Base.options = {
+    Base.options Base.options.merge(
       :auth_type => :bearer,
       :password  => value
-    }
+    )
   end
 
   def self.key=(value)
