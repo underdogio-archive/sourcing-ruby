@@ -30,6 +30,10 @@ parser  = OptionParser.new do |opts|
     values[:email] = v
   end
 
+  opts.on("--name NAME", String, "Name") do |v|
+    values[:name] = v
+  end
+
   opts.on("--api-key KEY", String, "Sourcing") do |v|
     options[:api_key] = v
   end
